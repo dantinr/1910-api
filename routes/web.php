@@ -14,3 +14,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+//首页商品列表
+$router->get('/home/goods',[
+    'middleware' => 'check.login',
+    'uses' => 'Goods\IndexController@home'
+]);
