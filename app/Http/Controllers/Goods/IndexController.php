@@ -21,14 +21,14 @@ class IndexController extends Controller
     public function home()
     {
         $url = env("SHOP_HOST") . '/api/goods/index';
-        //$data = file_get_contents($url);        //获取商品数据
+        $data = file_get_contents($url);        //获取商品数据
+        $list = json_decode($data,true);
 
-        $data = [];
         $response = [
             'errno' => 0,
             'msg'   => 'ok',
             'data'  => [
-                'goods' => $data
+                'goods' => $list['data']['list']
             ]
         ];
 
