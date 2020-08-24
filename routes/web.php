@@ -15,6 +15,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+
+$router->get('/test','ExampleController@test');
+
 //首页商品列表
 $router->get('/home/goods',[
     'middleware' => 'check.login',
